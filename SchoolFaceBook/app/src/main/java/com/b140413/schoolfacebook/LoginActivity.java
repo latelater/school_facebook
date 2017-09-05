@@ -69,16 +69,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //构建一个 MyDatabaseHelper 对象，通过构造函数将数据库名指定为 BookStore.db
-        dbHelper = new MyDatabaseHelper(this,"BookStore.db",null,1);
+        dbHelper = new MyDatabaseHelper(this,"User.db",null,1);
         Button createDatabase = (Button)findViewById(R.id.create_database);
         createDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /**
                  *调用getWritableDatabase() 方法
-                 * 自动检测当前程序中 BookStore.db 这个数据库
+                 * 自动检测当前程序中 User.db 这个数据库
                  * 如果不存在则创建该数据库并调用 onCreate() 方法
-                 * 同时Book表也会被创建
+                 * 同时User表也会被创建
                  */
                 dbHelper.getWritableDatabase();
             }

@@ -10,12 +10,12 @@ import android.widget.Toast;
  */
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
-    public static final String CREATE_BOOK = "CREATE TABLE book ("
+    public static final String CREATE_USER = "CREATE TABLE User ("
             + "id  integer PRIMARY KEY Autoincrement ,"
-            + "author text ,"
-            + "price real ,"
-            + "pages integer,"
-            + "name text )";
+            + "name text ,"
+            + "password text ,"
+            + "gender text,"
+            + "dt DATETIME DEFAULT (datetime('now','localtime')) )";
     /**
      * integer：整形
      * real：浮点型
@@ -35,10 +35,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //创建数据库的同时创建Book表
-        db.execSQL(CREATE_BOOK);
+        db.execSQL(CREATE_USER);
         //提示数据库创建成功
         Toast.makeText(myContent, "数据库创建成功", Toast.LENGTH_SHORT).show();
-        Toast.makeText(myContent, "数据库创建成功", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(myContent, "数据库创建成功", Toast.LENGTH_SHORT).show();
     }
 
     @Override
